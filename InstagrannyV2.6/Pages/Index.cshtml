@@ -1,0 +1,29 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4 mt-5">Granny`s Dashboard</h1>
+    <h3 class="mt-4 mb-5">Everything there is to know about Instagranny, right here!</h3>
+</div>
+<div class="row mt-5 mb-5"></div>
+<div class="row mt-5">
+    <div class="col-md-4 col-sm-12 mt-4 text-center">
+        <img src="Images/Globe.png" class="img-fluid" />
+        <p class="mb-4 mt-5">User count, number of posts and many other statistics, at the press of a button!</p>
+        <a class="btn btn-primary" asp-area="" asp-page="/Dashboard">Global Dashboard</a>
+        
+    </div>
+    <div class="col-md-4 col-sm-12 mt-4 text-center">
+        <img src="Images/PeopleGroup.png" class="img-fluid" />
+        <p class="mb-4 mt-5">Search through all of Instagranny`s users, maybe you can find one of your friends!</p>
+        <a class="btn btn-primary" asp-area="" asp-page="/Userlist">Search Users</a>
+    </div>
+    <div class="col-md-4 col-sm-12 mt-4 text-center">
+        <img src="Images/PostIcon.png" class="img-fluid" />
+        <p class="mb-4 mt-5">Cats, dogs or food recipes, what are the latest topics on our platform?</p>
+        <a class="btn btn-primary" asp-area="" asp-page="/Postlist">See latest posts</a>
+    </div>
+</div>

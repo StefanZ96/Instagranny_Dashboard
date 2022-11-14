@@ -1,0 +1,54 @@
+﻿@page
+@model InstagrannyV2._6.Pages.EditInformationModel
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+
+
+<h4>Modify Profile information, such as username or bio. Please make the reason for modification is in accordance with company policy. </h4>
+<hr />
+<div>
+   
+</div>
+<div class="row mt-5 justify-content-center">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Profiles.Id" />
+            <div class="form-group">
+                <label asp-for="Users.Username" class="control-label">Current Username</label>
+                <p>@Model.Users.Username</p>
+            </div>
+            <div class="form-group">
+                <label asp-for="Users.Username" class="control-label">New Username</label>
+                <input asp-for="EditUsers.Username" class="form-control" />
+                <span asp-validation-for="EditUsers.Username" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Profiles.Bio" class="control-label">Current Bio</label>
+                <p>@Model.Profiles.Bio</p>
+            </div>
+            <div class="form-group">
+                <label asp-for="Profiles.Bio" class="control-label">New Bio</label>
+                <input asp-for="EditProfiles.Bio" class="form-control" />
+                <span asp-validation-for="EditProfiles.Bio" class="text-danger"></span>
+            </div>
+            
+            
+            <div class="form-group mt-3 text-center">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }

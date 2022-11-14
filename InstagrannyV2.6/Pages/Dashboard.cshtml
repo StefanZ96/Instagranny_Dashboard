@@ -1,0 +1,88 @@
+﻿@page
+@model InstagrannyV2.Pages.DashboardModel
+@{
+    ViewData["Title"] = "Global Dashboard";
+}
+<div class="text-center">
+    <h1 class="display-4 mt-5">Global Dashboard</h1>
+    <h3 class="mt-4">Latest data about Instagranny`s network activity</h3>
+</div>
+
+
+<div class="row mt-5">
+    <div class="col-lg-6 col-md-12 col-sm-12 text-center p-0 mt-3">
+        <div class="container-fluid col-6 rounded-pill" style="width:contain; background-color:cornflowerblue">          
+            <h4 class="pt-3 bi bi-clipboard2-check" style="color:aliceblue ">Registered users</h4>
+            <p style="color:aliceblue"> All time unique accounts</p>
+            <h2 class="pb-3" style="color:aliceblue">@Model.Users.Count</h2>            
+        </div>
+    </div>
+    
+    <div class=" col-lg-6 col-md-12 col-sm-12 text-center p-0 mt-3">
+        <div class="container-fluid col-6 rounded-pill" style="width:contain; background-color:cornflowerblue">
+            <h4 class="pt-3" style="color:aliceblue">Active users:</h4>
+            <p style="color:aliceblue"> Logged in the last 15 days</p>
+            <h2 class="pb-3" style="color:aliceblue">@Model.activeUsers.Count</h2>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-3">
+    <div class="col-6 text-center mt-5">
+        <div class="float-end">
+            <h3 class="p-2" style=" background-color:cornflowerblue; color:aliceblue"> Oldest users</h3>
+            @foreach (var olduser in Model.oldestUsers)
+            {               
+             <center class="fs-3">@olduser.Username</center> 
+             <p class="border-bottom border-3">@olduser.Date_joined</p>
+            }
+        </div>        
+    </div>
+
+
+    <div class="col-6 text-center mt-5">
+        <div class="float-start">
+            <h3 class="p-2" style=" background-color:cornflowerblue; color:aliceblue">Newest users</h3>
+            @foreach (var newuser in Model.newestUsers)
+            {
+                <center class="fs-3">@newuser.Username</center>
+                <p class="border-bottom border-3">@newuser.Date_joined</p>
+            }
+        </div>
+    </div>
+
+</div>
+
+
+
+<div class="row mt-3">
+    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 text-center p-0 mt-3">
+        <div class="container-fluid col-6 rounded-pill" style="width:contain; background-color:cornflowerblue">
+            <h4 class="pt-3" style="color:aliceblue">Total posts</h4>           
+            <h2 class="pb-3" style="color:aliceblue">@Model.Posts.Count</h2>
+        </div>
+    </div>
+
+    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 text-center p-0 mt-3">
+        <div class="container-fluid col-6 rounded-pill" style="width:contain; background-color:cornflowerblue">
+            <h4 class="pt-3" style="color:aliceblue">Average posts/user</h4>
+            <h2 class="pb-3" style="color:aliceblue">@Model.AveragePosts</h2>
+        </div>
+    </div>
+
+    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 text-center p-0 mt-3">
+        <div class="container-fluid col-6 rounded-pill" style="width:contain; background-color:cornflowerblue">
+            <h4 class="pt-3" style="color:aliceblue">Photos Uploaded</h4>
+            <h2 class="pb-3" style="color:aliceblue">@Model.totalPics</h2>
+        </div>
+    </div>
+
+    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 text-center p-0 mt-3">
+        <div class="container-fluid col-6 rounded-pill" style="width:contain; background-color:cornflowerblue">
+            <h4 class="pt-3" style="color:aliceblue">Comments Created</h4>
+            <h2 class="pb-3" style="color:aliceblue">@Model.Comments.Count</h2>
+        </div>
+    </div>
+
+</div>
+

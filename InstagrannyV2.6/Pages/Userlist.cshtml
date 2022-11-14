@@ -1,0 +1,36 @@
+﻿@page
+@model InstagrannyV2.Pages.UserlistModel
+@{
+    ViewData["Title"] = "User List";
+}
+
+
+
+
+<div class="text-center mb-5">
+    <h1 class="display-4 mt-5">User list</h1>
+    <h3 class="mt-4">Search through all the Instagranny`s users</h3>
+</div>
+
+<table class="table table-hover mt-4 text-center  ">
+    <thead class="text-center">
+        <tr>
+            <th></th>
+            <th class="col-4">username</th>
+            <th class="col-4">Date joined</th>
+            <th class="col-4">Activity</th>
+        </tr>
+    </thead>
+    
+    @foreach (var user in Model.Users)
+    {
+        <tr>
+            <td><img src="~/Images/default_profile_picture.jpg" style="object-fit: contain; max-height:50px; border-radius: 50% " /></td>
+            <td class="fs-3 text-center">@Html.Raw("@")@user.Username</td>
+            <td class="fs-5 text-center">@user.Date_joined</td>
+            <td class="fs-5 text-center">Followers: @Model.uFollowers[user.Id] / Following: @Model.Followings[user]</td>
+            <td><a class="btn btn-primary" asp-area="" asp-page="/UserDetail" asp-route-ID="@user.Id" >View Details</a></td>
+        </tr>
+    }
+
+</table>
