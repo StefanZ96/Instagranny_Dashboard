@@ -1,5 +1,5 @@
 
-# Insagranny Dashboard
+# Instagranny Dashboard
 
 Dashboard created as an extension for the Instagranny platform, for network usage display and 
 admin manging tasks.
